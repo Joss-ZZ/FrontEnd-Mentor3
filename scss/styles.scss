@@ -1,0 +1,366 @@
+@import 'variables';
+@import 'mixins';
+
+//Global
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+  }
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+
+body{
+    font-family: $fuente_headings;
+    font-size: 1rem;
+}
+
+//Global
+.wrapper{
+    padding: 0 2.8rem;
+    @include telefono {
+        padding: 0 4rem;
+    }
+    @include tablet {
+        padding: 0 8rem;
+    }
+    max-width: 1440px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+li{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+
+%button{
+    padding: 1.2rem 3.5rem;
+    background-color: rgba($color: $pink, $alpha: 1.0);
+    border: none;
+    border-radius: 3rem;
+    color: $very-pale-blue;
+    box-shadow: 1px 5px 4px rgba($color: #000000, $alpha: .2);
+    cursor: pointer
+}
+
+
+.header{
+    @include desktop{
+        font-size: 1.2rem;
+    }
+    padding: 1.6rem 0;
+    &-content{
+        height: 2.8rem;
+        @include desktop {
+            height: 3.3rem;
+        }
+        display: flex;
+        justify-content: space-between;
+        &-img{
+            align-self: center;
+            height: 2rem;
+            @include desktop {
+                height: 2.6rem;
+            }
+            img{
+                height: 100%;
+            }
+        }
+    }
+    &-btn{
+        padding: 0 1.5rem;
+        color: $pink;
+        background: rgba($color: $pink, $alpha: 0);
+        border-radius: 1.5rem;
+        border: 1px solid $pink;
+        box-shadow: 1px 1px 10px rgba($color: $pink, $alpha: .2);
+        cursor: pointer;
+        @include desktop{
+            padding: 0 2.4rem;
+        }
+    }
+}   
+
+
+.hero{
+    padding: 5rem 0;
+    font-size: 1.3rem;
+    @include desktop {
+        font-size: 1.5rem;
+    }
+    text-align: center;
+    color: $very-dark-cyan;
+    h1{
+        line-height: 1.5;
+        margin-bottom: 1.2rem;
+    }
+    p{
+        line-height: 1.5;
+        margin-bottom: 3rem;
+        color: $very-dark-cyan2;
+        @include tablet {
+            padding: 0 8em;
+        }
+        @include desktop {
+            padding: 0 14rem;
+        }
+    }
+    &-button{
+        @extend %button;
+        margin-bottom: 4rem;
+    }
+    img{
+        width: 100%;
+    }
+    .hero-img{
+        @include desktop{
+            max-width: 99rem;
+        }
+    }
+    .img-container{
+        @include desktop{
+            display: flex;
+            justify-content: center;
+        }
+    }
+}
+
+.estadisticas{
+    padding: 5rem 0 15rem 0;
+}
+
+.estadisticas-grid{
+    font-size: 4.5rem;
+    display: grid;
+    grid-row-gap: 3rem;
+    @include telefono {
+        grid-template-columns: repeat(2, 1fr);
+        grid-column-gap: 3rem;
+    }
+    h2, p{
+        margin: 0;
+        text-align: center;
+    }
+    h2{
+        color: $very-dark-cyan;
+        font-family: $fuente_body;
+        margin-bottom: 1rem;
+    }
+    p{
+        font-size: 1.5rem;
+        color: $color-p;
+    }
+    &-item{
+        display: flex;
+        justify-content: center;
+        img{
+            text-align: left;
+        }
+    }
+}
+
+.estadisticas-item-content{
+    width: 185px;
+    min-height: 160px;
+}
+
+
+.principal{
+    // padding: 5rem 0;
+    font-size: 1.5rem;
+    background: $very-pale-blue;
+    color: $very-dark-cyan;
+    text-align: center;
+    position: relative;
+    &-topimg, &-topimg2{
+        position: absolute;
+        width: 100%;
+        left: 0;
+        bottom: 99%;
+    }
+    &-topimg{
+        display: block;
+        @include tablet {
+            display: none;
+        }
+    }
+    &-topimg2{
+        display: none;
+        @include tablet {
+            display: block;
+        }
+    }
+    &-bottomimg, &-bottomimg2{
+        position: absolute;
+        width: 100%;
+        left: 0;
+        top: 99%;
+        z-index: 10;
+    }&-bottomimg{
+        display: block;
+        @include tablet {
+            display: none;
+        }       
+    } 
+    &-bottomimg2{
+        display: none;
+        @include tablet {
+            display: block;
+        }
+    }
+    &-grid{
+        display: grid;
+        grid-row-gap: 5rem;
+    }
+    &:nth-child(2n-1){
+        background: #fff;
+        padding: 5em 0;
+    }
+}
+
+.articulo{
+    min-height: 62rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    @include tablet {
+        min-height: 35rem;
+    }
+    h2{
+        margin-top: 6rem;
+        font-family: $fuente_headings;
+    }
+    p{
+        font-weight: 600;
+        line-height: 1.5;
+        color: $very-dark-cyan2;
+    }
+    &-img{
+        padding: 0 3rem;
+        width: 100%;
+    }
+    &-button{
+        @extend %button;
+        margin-top: 2.5rem;
+    }
+    &.end{
+        margin-top: 10rem;
+        display: block;
+        min-height: 32rem;
+    }
+    &.articulo2{
+        @include telefono{
+            min-height: 90rem;
+        }
+        @include tablet{
+            min-height: 50rem;
+        }
+    }
+    &-grid{
+        @include tablet {
+            text-align: center;
+            display: grid;
+            grid-template-areas: "info imagen";
+        }
+    }
+}
+
+.articulo1, .articulo3{
+    .articulo-img{
+        @include tablet {
+            grid-area: imagen;
+        }
+    }
+}
+
+
+.footer{
+    font-family: $fuente_body;
+    font-weight: 500;
+    font-size: 1.5rem;
+    padding: 4rem 0;
+    background-color: $very-dark-cyan;
+    color: $very-pale-blue;
+    position: relative;
+
+    &-grid{
+        display: grid;
+        grid-row-gap: 6rem;
+        @include tablet {
+            grid-template-areas: "contacto suscribete";
+            grid-column-gap: 10rem;
+            grid-row-gap: 0;
+        }
+    }
+    p{
+        font-weight: 400;
+        line-height: 1.8;
+        margin-bottom: 4rem;
+    }
+}
+
+.suscribete{
+    @include tablet{
+        grid-area: suscribete;
+    }
+    &-send{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        @include desktop {
+            flex-wrap: nowrap;
+        }
+        input, button{
+            border:none;
+            border-radius: .8rem;
+            padding: 1.3rem 1rem;
+        }
+        input{
+            flex: 0 1 100%;
+            margin-bottom: 2.5rem;
+            @include desktop {
+                margin-bottom: 0;
+                margin-right: 2rem;
+            }
+        }
+        button{
+            flex: 0 1 50%;
+            font-weight: 700;
+            color: $very-pale-blue;
+            background-color: $pink;
+            cursor: pointer
+        }
+    }
+}
+
+.contacto{
+    @include tablet{
+        grid-area: contacto;
+    }
+    &-contact{
+        display: flex;
+        li{
+            line-height: 1.5;
+            margin-right: 1.5rem;
+            font-size: 2rem;
+        }
+        p{
+            margin:0
+        }
+    }
+    &-redes{
+        margin-top: 4rem;
+        padding: 0;
+        display: flex;
+        li{
+            margin-right: 1.5rem;
+        }
+        i{
+            font-size: 3rem;
+            color: $very-pale-blue;
+        }
+    }
+}
